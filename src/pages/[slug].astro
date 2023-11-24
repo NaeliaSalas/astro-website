@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Layout from '../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('../posts/*.md');
@@ -22,13 +22,14 @@ const { Content, frontmatter } = Astro.props.post;
   <section class="page-content">
     <div class="container">
       <Card>
-        <a class="btn" href="/blog">Go Back</a>
-        <h2>{frontmatter.title}</h2>
-        <div>
-          Written by <strong>{frontmatter.author} </strong> on {new Date(frontmatter.date).toLocaleDateString()}
-        </div>
-        <Content />
-      </Card>
+      <a class="btn" href="/blog">Go Back</a>
+      <h2>{frontmatter.title}</h2>
+      <div>
+        Written by <strong>{frontmatter.author}</strong>
+         on {new Date(frontmatter.date).
+        toLocaleString()}
+      </div>
+    </Card>
     </div>
   </section>
 </Layout>
